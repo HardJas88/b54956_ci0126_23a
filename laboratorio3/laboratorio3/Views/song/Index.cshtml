@@ -1,30 +1,36 @@
-﻿@model List<laboratorio3.Models.MovieModel>;
+﻿@model List<laboratorio3.Models.SongModel>;
 @{
-    ViewData["Title"] = "Movies";
+    ViewData["Title"] = "Songs";
 }
 <h1>@ViewBag.MainTitle</h1>
 <div>
     <table class="table">
         <thead>
             <tr>
-                <th>Movie title</th>
+                <th>Songs</th>
                 <th>Genre</th>
-                <th>Release date</th>
+                <th>Group</th>
+
+                
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.Name</td>
+                    <td>@item.Name  </td>
                     <td>@item.Genre</td>
-                    <td>@item.ReleaseDate</td>
+                    <td>@item.Group</td>
+                    
                 </tr>
+
             }
+
+           
+                      
         </tbody>
     </table>
 </div>
 <div>
-    <button>I am a button</button>
+    
 </div>
-

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using laboratorio3.Models;
+﻿using laboratorio3.Models;
 using Microsoft.AspNetCore.Mvc;
 namespace laboratorio3.Controllers
 {
