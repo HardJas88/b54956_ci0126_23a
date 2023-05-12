@@ -13,7 +13,7 @@ namespace laboratorio6.Controllers
             ViewBag.MainTitle = "Lista de Peliculas";
             return View(peliculas);
         }
-
+        [HttpGet]
         public IActionResult CrearPelicula() 
         {
             return View();
