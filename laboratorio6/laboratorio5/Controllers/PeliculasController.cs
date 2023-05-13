@@ -44,5 +44,82 @@ namespace laboratorio6.Controllers
             }
             
         }
+        public ActionResult EditarPelicula(int? identificador)
+        {
+           ActionResult vista;
+           try
+            {
+                var peliculasHandler = new PeliculasHandler();
+                var pelicula = peliculasHandler.ObtenerPeliculas().Find(model=>model.ID == identificador);
+                if (pelicula == null)
+                {
+                    vista = RedirectToAction("Index");
+                }
+                else
+                {
+                    vista = View(pelicula);
+                }
+                
+            }
+            catch
+            {
+                vista = RedirectToAction("Index");
+            }
+            return vista;
+        }
+
+
+        public ActionResult EditarPelicula(PeliculaModelo pelicula)
+        {
+            try
+            {
+                var peliculasHandler = new PeliculasHandler();
+                peliculasHandler.EditarPelicula(pelicula);
+                return RedirectToAction("Index", "Peliculas");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult BorrarPelicula(int? identificador)
+        {
+            ActionResult vista;
+            try
+            {
+                var peliculasHandler = new PeliculasHandler();
+                var pelicula = peliculasHandler.ObtenerPeliculas().Find(model => model.ID == identificador);
+                if (pelicula == null)
+                {
+                    vista = RedirectToAction("Index");
+                }
+                else
+                {
+                    vista = View(pelicula);
+                }
+            }
+            catch
+            {
+                vista = RedirectToAction("Index");
+            }
+            return vista;
+        }
+
+        [HttpPost]
+        public ActionResult BorrarPelicula(PeliculaModelo pelicula)
+        {
+            try
+            {
+                var peliculasHandler = new PeliculasHandler();
+                peliculasHandler.BorrarPelicula(pelicula);
+                return RedirectToAction("Index", "Peliculas");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

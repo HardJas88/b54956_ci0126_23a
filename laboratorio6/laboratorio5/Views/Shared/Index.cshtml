@@ -6,19 +6,37 @@
 <h1>@ViewBag.MainTitle</h1>
 
 <div>
+    <a href="@Url.Action("CrearPelicula", "Peliculas")"
+    class="btn btn-success">Crear pelicula</a>
     <table class="table">
         <thead>
             <tr>
-                <th>Titulo de la pelicula</th>
-                <th>Año de salida</th>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Año</th>
+                <th>Editar</th>
+                <th>Borrar</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var pelicula in Model)
+            @foreach (var item in Model)
             {
                 <tr>
-                    <td>@pelicula.Nombre</td>
-                    <td>@pelicula.Año</td>
+                    <td>@item.ID</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Año</td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarPelicula",
+                        new {identificador = @item.ID},
+                        new{@class ="btn btn alert-info",
+                            @onClick = "return confirm('Desea editar esta pelicula')"})
+                    </td>
+                    <td>
+                        @Html.ActionLink("Borrar", "BorrarPelicula",
+                        new {identificador = @item.ID},
+                        new{@class ="btn btn alert-danger",
+                            @onClick = "return confirm('Desea borrar esta pelicula')"})
+                    </td>
                 </tr>
             }
         </tbody>

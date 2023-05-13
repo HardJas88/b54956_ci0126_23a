@@ -1,26 +1,24 @@
 ﻿@model laboratorio6.Models.PeliculaModelo
 @{
-    ViewBag.Title = "Crear Pelicula";
+    ViewBag.Title = "Borrar Pelicula";
 }
 
 <html>
-    <head></head>
-    <body>
-    @if(ViewBag.Message != null)
+
+<head>
+</head>
+<body>
+
+    @if (ViewBag.Message != null)
     {
-        @if (ViewBag.ExitoAlCrear)
-        {
-            <div class="alert-success"><h3>@ViewBag.Message</h3></div>
-        }
-        else
-        {
-            <div class="alert-danger"><h3>@ViewBag.Message</h3></div>
-        }
+
     }
-    @using (Html.BeginForm("CrearPelicula", "peliculas", FormMethod.Post, new{enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("borrarPelitcula", "peliculas", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
-        <h1>Formulario de creacion de peliculas</h1>
+        <h1>borrar peliculas</h1>
+        @Html.HiddenFor(model=>model.ID)
+        ;
         <div class="form-horizontal">
             <div class="form-group">
                 @Html.LabelFor(model=> model.Nombre)
@@ -32,9 +30,10 @@
                 @Html.TextBoxFor(model=> model.Año, new{@class = "form-control"})
                 @Html.ValidationMessageFor(model=> model.Año, "", new{@class = "text-danger"})
             </div>
-            <input type="submit" class=" btn btn-success" value="Crear"/>
+            <input type="submit" class=" btn btn-success" value="Borrar" />
         </div>
-       
+
     }
 </body>
 </html>
+

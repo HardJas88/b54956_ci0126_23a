@@ -59,7 +59,43 @@ namespace laboratorio6.Handlers
             conexion.Open();
             bool exito = comandoParaConsulta.ExecuteNonQuery() >= 1;
             conexion.Close();
+
             return exito;
         }
+
+        public bool EditarPelicula(PeliculaModelo pelicula)
+        {
+            var consulta = @"UPDATE [dbo].[Pelicula] SET
+                Nombre = @Nombre,
+                Año = @Año
+                WHERE Id=@Id ";
+
+            var cmdParaConsulta = new SqlCommand(consulta, conexion);
+            cmdParaConsulta.Parameters.AddWithValue("@Nombre", pelicula.Nombre);
+            cmdParaConsulta.Parameters.AddWithValue("@Año", pelicula.Año);
+            cmdParaConsulta.Parameters.AddWithValue("@Id", pelicula.ID);
+
+            conexion.Open();
+            bool exito = cmdParaConsulta.ExecuteNonQuery() >=1;
+            conexion.Close();
+
+            return exito;
+        }
+
+        public bool BorrarPelicula(PeliculaModelo pelicula)
+        {
+            var consulta = @"DELETE [dbo].[Pelicula] WHERE Id=@Id";
+
+            var cmdParaConsulta = new SqlCommand(consulta, conexion);
+            cmdParaConsulta.Parameters.AddWithValue("@Id", pelicula.ID);
+
+            conexion.Open();
+            bool exito = cmdParaConsulta.ExecuteNonQuery() >= 1;
+            conexion.Close();
+
+            return exito;
+        }
+
+
     }
 }
