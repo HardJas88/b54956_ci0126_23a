@@ -1,0 +1,48 @@
+﻿@model List<Examen2.Models.TelefonoModelo>;
+@{
+    ViewData["Title"] = "Telefonos";
+}
+
+<h1>@ViewBag.MainTitle</h1>
+
+<div>
+    <a href="@Url.Action("crearTelefono", "Telefonos")"
+       class="btn btn-success"> Crear Telefono </a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Color</th>
+                <th>Cores</th>
+                <th>Android</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Marca</td>
+                    <td>@item.Modelo</td>
+                    <td>@item.Color</td>
+                    <td>@item.Cores</td>
+                    <td>@item.Android</td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarTelefono",
+                        new {identificador = item.ID},
+                        new {@class = "btn btn alert-info",
+                        @onclick = "return confirm('Desea editar este telefono?')"})
+                    </td>
+                    <td>
+                        @Html.ActionLink("Borrar", "BorrarTelefono",
+                        new {identificador = item.ID},
+                        new {@class = "btn btn alert-danger",
+                        @onclick = "return confirm('Desea borrar este telefono?')"})
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

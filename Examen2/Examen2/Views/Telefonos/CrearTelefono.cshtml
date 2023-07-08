@@ -1,0 +1,55 @@
+﻿@model Examen2.Models.TelefonoModelo
+@{
+    ViewBag.Title = "Crear Telefono";
+}
+
+<html>
+<head>
+</head>
+<body>
+    @if (ViewBag.Message != null)
+    {
+        @if (ViewBag.ExitoAlCrear)
+        {
+            <div class="alert-success"> <h3>@ViewBag.Message</h3> </div>
+        }
+        else
+        {
+            <div class="alert-danger"> <h3>@ViewBag.Message</h3> </div>
+        }
+    }
+    @using (Html.BeginForm("CrearTelefono", "telefonos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <h1>Formulario de creacion de telefonos</h1>
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Marca)
+                @Html.TextBoxFor(model => model.Marca, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Modelo)
+                @Html.TextBoxFor(model => model.Modelo, new{@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Modelo, "", new { @class = "text-danger"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Color)
+                @Html.TextBoxFor(model => model.Color, new{@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cores)
+                @Html.TextBoxFor(model => model.Cores, new{@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Cores, "", new { @class = "text-danger"})
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Android)
+                @Html.TextBoxFor(model => model.Android, new{@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.Android, "", new { @class = "text-danger"})
+            </div>
+            <input type="submit" class=" btn btn-success" value="Crear" />
+        </div>
+    }
+</body>
+</html>
