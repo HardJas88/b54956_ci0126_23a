@@ -1,0 +1,38 @@
+﻿body {
+    background-image: url('/css/fondo2.jpg');
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.form-horizontal .form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+.text-danger {
+    color: red;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+}

@@ -2,15 +2,22 @@
 @{
     ViewData["Title"] = "Telefonos";
 }
+<head>
+    <link rel="stylesheet" href="~/css/styledpageTelefonos.css" />
+</head>
 
+<body>
 <h1>@ViewBag.MainTitle</h1>
 
 <div>
     <a href="@Url.Action("crearTelefono", "Telefonos")"
-       class="btn btn-success"> Crear Telefono </a>
-    <table class="table">
+        class="btn btn-success"
+        id = "BottonCrear"
+    > Crear Telefono </a>
+    <table class="table" id="tableData ">
         <thead>
             <tr>
+                <th>Identificador</th>
                 <th>Marca</th>
                 <th>Modelo</th>
                 <th>Color</th>
@@ -24,25 +31,27 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td style="text-align: center">@item.ID</td>
                     <td>@item.Marca</td>
                     <td>@item.Modelo</td>
                     <td>@item.Color</td>
-                    <td>@item.Cores</td>
+                    <td style="text-align: center">@item.Cores</td>
                     <td>@item.Android</td>
                     <td>
                         @Html.ActionLink("Editar", "EditarTelefono",
                         new {identificador = item.ID},
-                        new {@class = "btn btn alert-info",
-                        @onclick = "return confirm('Desea editar este telefono?')"})
+                        new {@class = "btn btn alert-info", id = "BotonEditar: " + item.ID.ToString()
+                        })
                     </td>
                     <td>
                         @Html.ActionLink("Borrar", "BorrarTelefono",
                         new {identificador = item.ID},
-                        new {@class = "btn btn alert-danger",
-                        @onclick = "return confirm('Desea borrar este telefono?')"})
+                        new {@class = "btn btn alert-danger", id = "BotonBorrar: " + item.ID.ToString()
+                        })
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+</body>

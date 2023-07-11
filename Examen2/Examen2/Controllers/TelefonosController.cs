@@ -33,7 +33,7 @@ namespace Examen2.Controllers
 
                     if (ViewBag.ExitoAlCrear)
                     {
-                        ViewBag.Message = "El telefono " + telefono.Marca + "fue creada con exito.";
+                        ViewBag.Message = "El telefono " + telefono.Marca + " fue creada con exito.";
                         ModelState.Clear();
                     }
                 }

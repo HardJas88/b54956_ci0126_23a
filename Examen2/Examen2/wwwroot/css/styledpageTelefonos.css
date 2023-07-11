@@ -1,0 +1,30 @@
+﻿body {
+    background-image: url('/css/fondo2.jpg');
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.table {
+    margin: 20px auto;
+}
+
+    .table th, .table td {
+        text-align: center;
+        color: white;
+        font-weight: bold;
+    }
+
+        .table th.large-font {
+            font-size: 20px;
+        }
+

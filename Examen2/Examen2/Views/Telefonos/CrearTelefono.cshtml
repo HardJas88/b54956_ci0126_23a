@@ -5,6 +5,7 @@
 
 <html>
 <head>
+    <link rel="stylesheet" href="~/css/styledCreatePhone.css" />
 </head>
 <body>
     @if (ViewBag.Message != null)
@@ -25,30 +26,30 @@
         <div class="form-horizontal">
             <div class="form-group">
                 @Html.LabelFor(model => model.Marca)
-                @Html.TextBoxFor(model => model.Marca, new { @class = "form-control"})
+                @Html.TextBoxFor(model => model.Marca, new { @class = "form-control", id = "Marca"})
                 @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger"})
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Modelo)
-                @Html.TextBoxFor(model => model.Modelo, new{@class = "form-control"})
+                @Html.TextBoxFor(model => model.Modelo, new{@class = "form-control", id = "Modelo"})
                 @Html.ValidationMessageFor(model => model.Modelo, "", new { @class = "text-danger"})
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Color)
-                @Html.TextBoxFor(model => model.Color, new{@class = "form-control"})
+                @Html.TextBoxFor(model => model.Color, new{@class = "form-control", id = "Color"})
                 @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger"})
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Cores)
-                @Html.TextBoxFor(model => model.Cores, new{@class = "form-control"})
+                @Html.TextBoxFor(model => model.Cores, new{@class = "form-control", id = "Cores"})
                 @Html.ValidationMessageFor(model => model.Cores, "", new { @class = "text-danger"})
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Android)
-                @Html.TextBoxFor(model => model.Android, new{@class = "form-control"})
+                @Html.TextBoxFor(model => model.Android, new{@class = "form-control", id = "Android"})
                 @Html.ValidationMessageFor(model => model.Android, "", new { @class = "text-danger"})
             </div>
-            <input type="submit" class=" btn btn-success" value="Crear" />
+            <input type="submit" class=" btn btn-success" value="Crear" id="BottonConfirmarCreacion" />
         </div>
     }
 </body>

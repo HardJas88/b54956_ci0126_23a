@@ -1,0 +1,16 @@
+body {
+    background-image: url('/css/fondo.jpg');
+    background-size: cover;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.display-4 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: White;
+}
+
+

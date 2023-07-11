@@ -4,6 +4,7 @@
 }
 <html>
 <head>
+    <link rel="stylesheet" href="~/css/styledCreatePhone.css" />
 </head>
 <body>
     @using (Html.BeginForm("BorrarTelefono", "telefonos", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -37,7 +38,7 @@
                 @Html.TextBoxFor(model => model.Android, new{@class = "form-control"})
                 @Html.ValidationMessageFor(model => model.Android, "", new { @class = "text-danger"})
             </div>
-            <input type="submit" class="btn btn-success" value="Borrar" />
+            <input type="submit" class="btn btn-success" value="Borrar", id="BottonConfirmarBorrado" />
         </div>
     }
 </body>
