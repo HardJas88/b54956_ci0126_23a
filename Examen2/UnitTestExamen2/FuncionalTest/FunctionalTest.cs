@@ -13,8 +13,8 @@ namespace UnitTestExamen2.FuncionalTest
     {
         /* 
          *  R1/ La prueba tiene como objetivo automatizar la creación de un telefono
-         *  R2/ La prueba logra crear de una manera correcta un nuevo telefono y
-         *  lograr probar que esta funcionando de manera optima.
+         *  R2/ La prueba logra crear de una manera correcta un nuevo telefono 
+         *  
          */
         [TestMethod]
         public void CreatePhone() 
@@ -45,7 +45,7 @@ namespace UnitTestExamen2.FuncionalTest
             string urlStart = "https://localhost:7140/Telefonos";
             driver.Url = urlStart;
             driver.Navigate().GoToUrl(urlStart);
-            // aqui se le debe indicar el ID del telefono que quiere editar
+            // aqui se le debe indicar el ID del telefono que quiere editar para editar uno en particular
             driver.FindElement(By.Id("BotonEditar: 56")).Click();
             IWebElement colorEditarInput = driver.FindElement(By.Id("ColorEditar"));
             colorEditarInput.Clear(); 
@@ -66,7 +66,7 @@ namespace UnitTestExamen2.FuncionalTest
             string urlStart = "https://localhost:7140/Telefonos";
             driver.Url = urlStart;
             driver.Navigate().GoToUrl(urlStart);
-            // aqui se le debe indicar el ID del telefono que quiere editar
+            // aqui se le debe indicar el ID del telefono que quiere borrar
             driver.FindElement(By.Id("BotonBorrar: 27")).Click();
             driver.FindElement(By.Id("BottonConfirmarBorrado")).Click();
             string URLEnd = "https://localhost:7140/Telefonos";
@@ -88,7 +88,5 @@ namespace UnitTestExamen2.FuncionalTest
             string URLEnd = "https://localhost:7140/Telefonos";
             Assert.AreEqual(URLEnd, driver.Url);
         }
-
-
     }
 }

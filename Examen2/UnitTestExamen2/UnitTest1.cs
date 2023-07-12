@@ -38,6 +38,8 @@ namespace UnitTestExamen2
             List<TelefonoModelo> telefonos = handler.ObtenerTelefonos();
 
             Assert.IsTrue(telefonos.Any(e => e.Marca == "Samsung"));
+            Assert.IsTrue(telefonos.Any(e => e.Modelo == "Revolution"));
+            // se pueden agregar mas asserts para verificar la otención de diferentes datos
 
         }
 
@@ -88,6 +90,7 @@ namespace UnitTestExamen2
             List<TelefonoModelo> listaTelefono = handler.ObtenerTelefonos();
 
             Assert.IsTrue(listaTelefono.Any(e => e.Marca == "Motorola"));
+            // se verifica que el dato que ingreso se encuentre en la lista
         }
 
         /* Prueba para verificar que no se borran telefonos que no existen.
@@ -176,6 +179,6 @@ namespace UnitTestExamen2
             bool editarExitoso = handler.EditarTelefono(telefono);
 
             Assert.IsTrue(editarExitoso);
-        }        
+        }     
     }
 }
