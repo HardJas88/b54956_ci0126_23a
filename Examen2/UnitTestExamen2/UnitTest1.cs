@@ -26,9 +26,9 @@ namespace UnitTestExamen2
         /* Prueba que comprueba que se obtenga los datos de DB y verifica que los datos tengo una Marca
          R1/ No se necesitan valores de entrada porque ya existen datos en la Base de datos desde donde se extraen los datos.
          R2/ Se logra el resultado correcto debido a que la prueba comprueba que se devuelvan los datos de la Base de datos y 
-            que exista una marca con un nombre en particular y cuando esto ocurre la prueba pasa correctamente.
+            que exista una marca con un nombre en particular y cuando esto ocurre la prueba pasa correctamente, la prueba podría fallar
+            si no hay un telefono con esa Marca en la DB
          */
-
         [TestMethod]
         public void ObtenerTelefonos_DebeRetornarTelefonosCorrectamente()
         {
@@ -37,16 +37,13 @@ namespace UnitTestExamen2
 
             List<TelefonoModelo> telefonos = handler.ObtenerTelefonos();
 
-            Assert.IsNotNull(telefonos);
-
             Assert.IsTrue(telefonos.Any(e => e.Marca == "Samsung"));
 
         }
 
-
         /* Prueba que crear un telefono y comprueba que se creara
-            R1/Se crea un objeto con valores de un teléfono como son Marca,
-            Modelo, Color, Cores y Android?. Estos elementos son los necesarios para la creación exitosa de un teléfono.
+            R1/Se crea un objeto con valores de un teléfono como son Marca, Modelo, Color, Cores y Android?. Estos elementos son
+            los necesarios para la creación exitosa de un teléfono.
             R2/ Al utilizar un objeto teléfono con los valores esperados para su creación, la prueba logra culminarse con éxito.
          */
         [TestMethod]
@@ -65,15 +62,14 @@ namespace UnitTestExamen2
             bool result = handler.CrearTelefono(telefono);
 
             Assert.IsTrue(result);
-
         }
 
         /* prueba que crea un telefono y comprueba que la marca del telefono se
             encuentre en la base de datos
             R1/ Se crea un objeto con valores de un teléfono como son Marca, Modelo,
             Color, Cores y Android?. Estos elementos son los necesarios para la creación exitosa de un teléfono.
-            R2/Al ingresar los valores correctos para la creación de teléfono, entonces se genera correctamente 
-               el teléfono, además se comprueba que en la lista de todos los teléfonos, exista su marca.
+            R2/Al ingresar los valores correctos para la creación de teléfono, y comprobar que en la lista de 
+            todos los teléfonos, exista su marca.
          */
         [TestMethod]
         public void CrearTelefono_VerificarSiEncuentraCreadoEnLaBaseConNombre()
@@ -94,7 +90,7 @@ namespace UnitTestExamen2
             Assert.IsTrue(listaTelefono.Any(e => e.Marca == "Motorola"));
         }
 
-        /* Prueba para verificar que no se borran telefonos que no existen de manera correcta
+        /* Prueba para verificar que no se borran telefonos que no existen.
          *  R1/ Recibe un ID del teléfono que necesita borrar, esto porque necesita una identificación del elemento que va a ser borrado.
             R2/ Si se logra de manera incorrecta realizar el borrado del teléfono, entonces devuelve true como un proceso que se realizó bien.
          */
@@ -123,7 +119,7 @@ namespace UnitTestExamen2
             TelefonosHandler handler = new TelefonosHandler();
             TelefonoModelo telefono = new TelefonoModelo
             {
-                ID = 60 // se le debe colocar el ID de l telefono por borrar
+                ID = 60 // se le debe colocar el ID del telefono por borrar
             };
 
             bool result = handler.BorrarTelefono(telefono);
@@ -154,7 +150,6 @@ namespace UnitTestExamen2
             bool editarExitoso = handler.EditarTelefono(telefono);
 
             Assert.IsTrue(editarExitoso);
-
         }
 
 
@@ -181,9 +176,6 @@ namespace UnitTestExamen2
             bool editarExitoso = handler.EditarTelefono(telefono);
 
             Assert.IsTrue(editarExitoso);
-
-        }
-
-        
+        }        
     }
 }
